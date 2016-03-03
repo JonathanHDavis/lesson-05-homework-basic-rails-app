@@ -429,3 +429,25 @@ Processing by ArticlesController#index as HTML
   [1m[35mArticle Load (0.5ms)[0m  SELECT "articles".* FROM "articles"
   Rendered articles/index.html.erb within layouts/application (7.3ms)
 Completed 200 OK in 248ms (Views: 233.0ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeStringToTextOnBody (20160303011718)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "aarticles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "articles"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (1, 'Test 1', 'Body 1 blah blah blah', '2016-02-29 20:50:21.439598', '2016-02-29 20:50:21.439598')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (2, 'Test 2', 'Body 2 blah blah blah', '2016-02-29 20:50:55.347042', '2016-02-29 20:50:55.347042')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (3, 'Test 3', 'Body 3 blah blah blah', '2016-02-29 20:51:11.651643', '2016-02-29 20:51:11.651643')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (4, 'Test 4', 'Body 4 blah blah blah', '2016-02-29 20:51:49.580122', '2016-02-29 20:51:49.580122')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aarticles" ("id","title","body","created_at","updated_at") VALUES (5, 'Test 5', 'Body 5 blah blah blah', '2016-02-29 20:52:06.472192', '2016-02-29 20:52:06.472192')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "articles"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "aarticles"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (1, 'Test 1', 'Body 1 blah blah blah', '2016-02-29 20:50:21.439598', '2016-02-29 20:50:21.439598')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (2, 'Test 2', 'Body 2 blah blah blah', '2016-02-29 20:50:55.347042', '2016-02-29 20:50:55.347042')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (3, 'Test 3', 'Body 3 blah blah blah', '2016-02-29 20:51:11.651643', '2016-02-29 20:51:11.651643')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (4, 'Test 4', 'Body 4 blah blah blah', '2016-02-29 20:51:49.580122', '2016-02-29 20:51:49.580122')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "articles" ("id","title","body","created_at","updated_at") VALUES (5, 'Test 5', 'Body 5 blah blah blah', '2016-02-29 20:52:06.472192', '2016-02-29 20:52:06.472192')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aarticles"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160303011718"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
